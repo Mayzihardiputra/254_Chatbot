@@ -111,3 +111,12 @@ app.post("/api/chat", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server berjalan di http://localhost:${PORT}`);
+    });
+}
+
+// Ekspor app agar bisa dibaca oleh Vercel Serverless Function
+module.exports = app;
